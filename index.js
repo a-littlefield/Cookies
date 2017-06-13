@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
 	let update = function(){ 
 		let chocolateCount = parseInt(Cookies.get('chocolate')) ;
 		let sugarCount = parseInt(Cookies.get('sugar'));
@@ -8,9 +9,14 @@ $(document).ready(function () {
 			alert('Alright thats enough, you can stop now')
 		}else if(chocolateCount + sugarCount + lemonCount === 50){
 			alert('Stop or I\'m gonna puke!')
+		}else if (chocolateCount + sugarCount + lemonCount === 75){
+			alert('You can still save him! Please regurgitate! He cant take much more!')
 		}else if (chocolateCount + sugarCount + lemonCount === 100){
+			let audio = new Audio('deathSound.mp3');
+			audio.play();
 			$('body').css("background", "url(http://www.signspotting.com/wp-content/main/2011_10/7397%201500.jpg)");
 			$('#image').remove();
+			alert('Well, you done it now. You went and killed Chester, and for what?! To force feed him 100 cookies, you monster.');
 		};
 	};	
 	$('#delete').click(function () {
@@ -30,7 +36,7 @@ $(document).ready(function () {
 	};
 	function lemonCookie() {
 		$('#lemDiv').html('<h3>Lemon</h3> Cookie Count: ' + Cookies.get('lemon'));
-	}
+	};
 
 	$('#chocolate').click(function () {
 		if(Cookies.get('chocolate')==undefined){
@@ -54,11 +60,10 @@ $(document).ready(function () {
 		if(Cookies.get('lemon')==undefined){
 			Cookies.set('lemon', 0);
 		}
-		update();
 		Cookies.set('lemon', parseInt(Cookies.get('lemon'))+1);
+		update();
 		lemonCookie();
 	});
 	lemonCookie();
 	update();
-
 });
