@@ -14,9 +14,12 @@ $(document).ready(function () {
 		}else if (chocolateCount + sugarCount + lemonCount === 100){
 			let audio = new Audio('deathSound.mp3');
 			audio.play();
-			$('body').css("background", "url(http://www.signspotting.com/wp-content/main/2011_10/7397%201500.jpg)");
+			$('body').css("background", "url(http://i1.kym-cdn.com/photos/images/original/000/219/485/what_have_you_done_face_by_peteypiranha128-d3pbwit.jpg) no-repeat 200px 10px");
 			$('#image').remove();
 			alert('Well, you done it now. You went and killed Chester, and for what?! To force feed him 100 cookies, you monster.');
+		}else if (chocolateCount + sugarCount + lemonCount > 100){
+			$('body').css("background", "url(http://i1.kym-cdn.com/photos/images/original/000/219/485/what_have_you_done_face_by_peteypiranha128-d3pbwit.jpg) no-repeat 200px 10px");
+			$('#image').remove();
 		};
 	};	
 	$('#delete').click(function () {
